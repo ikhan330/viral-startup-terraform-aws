@@ -1,0 +1,10 @@
+﻿project_name           = "viral-startup"
+environment            = "dev"
+aws_region             = "ap-south-1"
+db_password            = "REPLACE_WITH_SECURE_PASSWORD"
+availability_zone_main = "ap-south-1a"
+
+db_name     = "REPLACE_WITH_DATABASE_NAME"
+db_username = "REPLACE_WITH_DATABASE_USERNAME"
+
+website_url = "https://d10pa4mdz2ylrm.cloudfront.net"

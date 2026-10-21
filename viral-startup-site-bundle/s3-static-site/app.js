@@ -1,0 +1,14 @@
+(() => {
+const api=(window.APP_CONFIG?.API_BASE||"").replace(/\/+$/,"");
+const grid=document.getElementById("ideaGrid"),status=document.getElementById("apiStatus");
+const form=document.getElementById("ideaForm"),button=document.getElementById("submitButton"),message=document.getElementById("formMessage");
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+function render(items){if(!items.length){grid.innerHTML='<div class="empty">The board is open. Be the first to share an idea. ✳</div>';return}
+const icons=["✳","↗","◈","✦"];grid.innerHTML=items.map((x,i)=>`<article class="idea"><div class="idea-top"><span class="idea-icon">${icons[i%4]}</span><span class="idea-number">IDEA / ${String(i+1).padStart(2,"0")}</span></div><span class="tag">${esc(x.category||"Other")}</span><h3>${esc(x.title)}</h3><p>${esc(x.description)}</p><div class="idea-bottom"><span>RECENTLY SHARED</span><span>↗</span></div></article>`).join("")}
+async function load(){if(!api){status.textContent="API URL not configured";grid.innerHTML='<div class="empty">The website design is ready. Add your API Gateway URL in config.js to load live ideas.</div>';return}
+status.textContent="Connecting to API…";try{const r=await fetch(`${api}/ideas`);if(!r.ok)throw Error(`API returned ${r.status}`);const d=await r.json();render(d.items||[]);status.textContent="Live API connected"}catch(e){status.textContent="API unavailable";grid.innerHTML='<div class="empty">Could not load ideas. Check API Gateway, Lambda and RDS configuration.</div>'}}
+form.addEventListener("submit",async e=>{e.preventDefault();if(!api){message.textContent="Set API_BASE in config.js after creating your API Gateway.";message.className="message error";return}
+const payload=Object.fromEntries(new FormData(form).entries());button.disabled=true;button.textContent="Sharing…";message.textContent="Sending your idea…";message.className="message";
+try{const r=await fetch(`${api}/ideas`,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)});const d=await r.json().catch(()=>({}));if(!r.ok)throw Error(d.error||`Request failed (${r.status})`);form.reset();message.textContent="Your idea has been shared successfully!";message.className="message success";await load();document.getElementById("discover").scrollIntoView({behavior:"smooth"})}catch(e){message.textContent=e.message+" Please try again.";message.className="message error"}finally{button.disabled=false;button.innerHTML='Share my idea <b>↗</b>'}});
+document.getElementById("refresh").addEventListener("click",load);load();
+})();

@@ -1,0 +1,36 @@
+﻿.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+terraform.tfvars
+*.auto.tfvars
+crash.log
+crash.*.log
+
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials
+.aws/
+
+handler.py
+nat-test.zip
+nat-test-result.json
+lambda-backup.zip
+
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.vscode/
+.idea/
+
+# Terraform plan files
+tfplan
+
+# Deployment artifacts and bundled dependencies
+*.zip
+viral-startup-site-bundle/lambda-function/package/
+lambda-zip-review/

@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Viral Startup — share ideas, discover what is next, and build something remarkable.">
+<title>Viral Startup | Make your idea move</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script src="config.js"></script><script defer src="app.js"></script>
+</head>
+<body>
+<header class="nav shell"><a class="logo" href="#"><span class="logo-mark">V</span> viral<span>startup.</span></a><nav><a href="#discover">Discover</a><a class="nav-button" href="#submit">Share an idea ↗</a></nav></header>
+<main>
+<section class="hero shell">
+<div class="hero-copy"><div class="kicker"><i></i> BIG IDEAS START SOMEWHERE</div>
+<h1>Small idea.<br><em>Big energy.</em></h1>
+<p class="lead">The internet is full of noise. Let's make room for ideas worth building. Share your next big thing, find inspiration, and put your idea in motion.</p>
+<div class="hero-buttons"><a class="button dark" href="#submit">Launch your idea <b>↗</b></a><a class="under-link" href="#discover">Explore the board ↓</a></div>
+<div class="mini-proof"><div class="faces"><span>IK</span><span>AM</span><span>SR</span><span>+</span></div><span><strong>Made for curious minds.</strong><br>Built for people who take the first step.</span></div></div>
+<div class="art"><div class="ring ring-a"></div><div class="ring ring-b"></div><div class="orb"><span>✳</span></div><div class="note note-a"><span class="note-symbol">✦</span><div><strong>Think it.</strong><small>Then share it.</small></div></div><div class="note note-b"><span class="note-symbol green">↗</span><div><strong>Make it happen.</strong><small>One step at a time.</small></div></div><div class="art-caption">DREAM · SHARE · BUILD</div></div>
+<div class="stats"><div><b>01</b><span>One idea is all it takes</span></div><div><b>∞</b><span>Room for new possibilities</span></div><div><b>100%</b><span>Your next move starts here</span></div></div>
+</section>
+<section class="board" id="discover"><div class="shell"><div class="section-top"><div><div class="kicker">THE COMMUNITY IDEA BOARD</div><h2>What are people <em>dreaming up?</em></h2><p>Fresh ideas from people ready to turn “what if?” into “what's next?”</p></div><button id="refresh" class="button outline">↻ Refresh</button></div>
+<div class="status-row"><span>RECENTLY SHARED</span><span class="status"><i></i><b id="apiStatus">Checking connection…</b></span></div><div id="ideaGrid" class="grid"><div class="empty">Loading ideas…</div></div><p id="boardMessage" class="message" aria-live="polite"></p></div></section>
+<section class="submit" id="submit"><div class="shell submit-layout"><div class="submit-intro"><div class="kicker"><i></i> YOUR IDEA BELONGS HERE</div><h2>Don't keep it<br><em>in your head.</em></h2><p>Every meaningful project begins with a first version. Tell the world what you're thinking about — the next step starts with sharing.</p><div class="side-note"><span>✳</span><p><b>No pitch deck. No gatekeeping.</b><br>Just a clear idea and a little courage.</p></div></div>
+<form id="ideaForm" class="form"><div class="form-title"><div><small>01 / YOUR IDEA</small><h3>Put it out there.</h3></div><span>✳</span></div>
+<label for="title">Give it a name <sup>*</sup></label><input id="title" name="title" required maxlength="100" placeholder="e.g. Smart shopping for local stores">
+<label for="description">Tell us about it <sup>*</sup></label><textarea id="description" name="description" required maxlength="1000" rows="4" placeholder="What problem does it solve? Who might it help?"></textarea>
+<div class="two"><div><label for="category">Category</label><select id="category" name="category"><option>Technology</option><option>AI & Automation</option><option>Commerce</option><option>Education</option><option>Health & Wellness</option><option>Climate</option><option>Community</option><option>Other</option></select></div><div><label for="contact">Email (optional)</label><input id="contact" name="contact" type="email" maxlength="254" placeholder="you@example.com"></div></div>
+<button id="submitButton" class="button dark full" type="submit">Share my idea <b>↗</b></button><p id="formMessage" class="message" aria-live="polite">Submitted ideas appear on the public board. Please don't share secrets.</p></form></div></section>
+</main>
+<footer class="shell footer"><a class="logo" href="#"><span class="logo-mark">V</span> viral<span>startup.</span></a><span>Ideas don't build themselves. ✳</span><span>SERVERLESS ON AWS</span></footer>
+</body></html>
